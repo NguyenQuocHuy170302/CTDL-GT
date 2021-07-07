@@ -1,0 +1,63 @@
+#include<iostream>
+
+using namespace std;
+
+class Node {
+public:
+	Node* pvew;
+	Node* next;
+	int data;
+	Node(int data = 0) {
+		this->data = data;
+		this->pvew = NULL;
+		this->next = NULL;
+	}
+	int getsize() {
+		Node* temp = this;
+		int size = 0;
+		while (temp!=NULL)
+		{
+			size++;
+			temp = temp->next;
+		}
+		return size;
+	}
+	void addtail(int data){
+		Node* add = new Node(data);
+		Node* temp = this;
+		while (temp->next!=NULL)
+		{
+			temp = temp->next;
+		}
+
+		temp->next = add;
+		add->pvew = temp;
+	}
+	
+	int count_triplets() {
+		int count = 0;
+		if (this->getsize() < 3)
+			return count;
+		Node* temp = this->next;
+		while (temp->next!=NULL)
+		{
+			if (temp->pvew->data + temp->data + temp->next->data == 0)
+				count++;
+			temp = temp->next;
+		}
+		return count;
+	}
+};
+
+int main() {
+	int n, data;
+	cin >> n >> data;
+	Node* node1 = new Node(data);
+	for (size_t i = 0; i < n-1; i++)
+	{
+		cin >> data;
+		node1->addtail(data);
+	}
+	cout<<node1->count_triplets();
+	return 0;
+}

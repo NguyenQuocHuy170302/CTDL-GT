@@ -1,0 +1,66 @@
+#include<iostream>
+
+using namespace std;
+class point {
+public:
+	double x, y;
+	point() {
+		this->y = 0;
+		this->y = 0;
+	}
+	void output() {
+		cout << this->x << " " << this->y << endl;
+	}
+};
+
+class line {
+public:
+	point A, B;
+	void intput() {
+		cin >> this->A.x >> this->A.y >> this->B.x >> this->B.y;
+	}
+};
+
+void intersection(line AB, line CD) {
+
+	double vecABx = AB.B.x - AB.A.x;
+	double vecABy = AB.B.y - AB.A.y;
+	double vecCDx = CD.B.x - CD.A.x;
+	double vecCDy = CD.B.y - CD.A.y;
+	
+	double a1 = -vecABy;
+	double b1 = vecABx;
+	double c1 = vecABy * AB.A.x - vecABx * AB.A.y;
+	double a2 = -vecCDy;
+	double b2 = vecCDx;
+	double c2 = vecCDy * CD.A.x - vecCDx * CD.A.y;
+
+	double  D, Dx, Dy, x, y;
+	D = a1 * b2 - a2 * b1;
+	Dx = c1 * b2 - c2 * b1;
+	Dy = a1 * c2 - a2 * c1;
+
+	if (D == 0) {
+		//nếu D = 0 và Dx + Dy = 0 thì phương trình vô số nghiệm, ngược lại thì vô nghiệm
+		if (Dx + Dy == 0)
+			cout << "MANY";
+		else
+			cout << "NO";
+	}
+	//tính x và y theo công thức
+	else {
+		x = -Dx / D;
+		y = -Dy / D;
+		cout << x << " " << y;
+	}
+	
+}
+
+int main() {
+	line AB, CD;
+	AB.intput();
+	CD.intput();
+	intersection(AB, CD);
+	
+	return 0;
+}

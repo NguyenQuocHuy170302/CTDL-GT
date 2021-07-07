@@ -1,0 +1,64 @@
+#include<iostream>
+
+using namespace std;
+
+class Node {
+public:
+	int data;
+	Node* next;
+	Node(int data = 0) {
+		this->data = data;
+		this->next = NULL;
+	}
+	void insert(int p, int data) {
+		Node* add = new Node(data);
+		Node* temp = this;
+		if (p == 0) {
+			add->next = temp->next;
+			temp->next = add;
+			int swap = temp->data;
+			temp->data = add->data;
+			add->data = swap;
+			return;
+		}
+		while (p>1)
+		{
+
+			temp = temp->next;
+			p--;
+		}
+		add->next = temp->next;
+		temp->next = add;
+	}
+	void Delete(int p) {
+		Node* temp = this;
+		if (p == 0) {
+			if (this->next != NULL) {
+				while (temp->next != NULL)
+				{
+					temp->data = temp->next->data;
+					if (temp->next->next == NULL) {
+						delete temp->next;
+						temp->next = NULL;
+					}
+					temp = temp->next;
+				}
+				return;
+			}
+		}
+		
+		while (p>1)
+		{
+			temp = temp->next;
+		}
+		Node* temp1 = temp->next;
+		temp->next = temp1->next;
+		delete temp1;
+		temp1 = NULL;
+	}
+};
+
+int main() {
+	
+	return 0;
+}

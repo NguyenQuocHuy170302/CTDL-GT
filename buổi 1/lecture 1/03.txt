@@ -1,0 +1,22 @@
+#include<iostream>
+
+using namespace std;
+
+int commonDivisor(int m, int n) {
+	int min;
+	if (m > n)
+		min = n;
+	else
+		min = m;
+
+	for (size_t i = min; i >= 1; i--)
+	{
+		if (m % min == 0 && n % min == 0)
+			return min;
+	}
+}
+int main() {
+	
+	
+	return 0;
+}

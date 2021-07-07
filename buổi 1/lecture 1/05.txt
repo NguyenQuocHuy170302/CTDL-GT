@@ -1,0 +1,20 @@
+#include<iostream>
+
+using namespace std;
+
+int main() {
+	int a;
+	cin >> a;
+	int max = a;
+	int min = a;
+	for (size_t i = 0; i < 4; i++)
+	{
+		cin >> a;
+		if (max < a)
+			max = a;
+		if (min > a)
+			min = a;
+	}
+	cout << max + min;
+	return 0;
+}
