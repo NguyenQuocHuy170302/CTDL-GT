@@ -1,0 +1,59 @@
+#include<iostream>
+
+using namespace std;
+
+class stack {
+public:
+	int currentSize;
+	const int MAXSIZE = 100000;
+	int* arr;
+	stack() {
+		this->currentSize = 0;
+		this->arr = new int[this->MAXSIZE];
+	}
+	bool isEmpty() {
+		return this->currentSize == 0;
+	}
+	bool ifFull() {
+		return this->currentSize == this->MAXSIZE;
+	}
+	void output() {
+		for (size_t i = 0; i < this->currentSize; i++)
+		{
+			cout << this->arr[i] << " ";
+		}
+		cout << endl;
+	}
+	bool push (int data) {
+		if (!this->ifFull()) {
+			this->arr[currentSize] = data;
+			currentSize++;
+			return true;
+		}
+		return false;
+	}
+	bool pop() {
+		if (!this->isEmpty()) {
+			currentSize--;
+			return true;
+		}
+		return false;
+	}
+};
+
+
+int main() {
+	stack test;
+	for (size_t i = 0; i < 10; i++)
+	{
+		test.push(i + 1);
+	}
+	
+	for (size_t i = 0; i < 8; i++)
+	{
+		test.pop();
+	}
+	test.output();
+
+	return 0;
+}

@@ -1,0 +1,61 @@
+#include<iostream>
+
+using namespace std;
+class queue {
+public:
+	int currentSize;
+	const int MAXSIZE = 100000;
+	int* arr;
+	queue() {
+		this->currentSize = 0;
+		this->arr = new int[this->MAXSIZE];
+	}
+	bool isEmpty() {
+		return this->currentSize == 0;
+	}
+	bool ifFull() {
+		return this->currentSize == this->MAXSIZE;
+	}
+	void output() {
+		for (size_t i = 0; i < this->currentSize; i++)
+		{
+			cout << this->arr[i] << " ";
+		}
+		cout << endl;
+	}
+	bool enqueue (int data) {
+		if (!this->ifFull()) {
+			this->arr[currentSize] = data;
+			currentSize++;
+			return true;
+		}
+		return false;
+	}
+	bool dequeue() {
+		if (!this->isEmpty()) {
+			for (size_t i = 0; i < this->currentSize-1; i++)
+			{
+				this->arr[i] = this->arr[i + 1];
+			}
+			currentSize--;
+			return true;
+		}
+		return false;
+	}
+};
+
+
+int main() {
+	queue test;
+	for (size_t i = 0; i < 10; i++)
+	{
+		test.enqueue(i + 1);
+	}
+	
+	for (size_t i = 0; i < 9; i++)
+	{
+		test.dequeue();
+	}
+	test.output();
+	return 0;
+}
