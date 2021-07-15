@@ -1,0 +1,16 @@
+function insertHead(value,node* head)
+	node* newnode->data=value
+	newnode->next=head
+	return newnode
+Evaluate:O(1)
+
+function getTail(node* head)
+	node*temp=head
+	while(condition = temp->next->next!=NULL)
+		do temp=temp->next
+	data=temp->next->data
+	delete temp->next
+	temp->next=NULL
+	return data
+Evaluate:O(n)
+	

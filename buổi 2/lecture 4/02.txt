@@ -1,0 +1,25 @@
+a)	Assume collisions are handled by chaining
+	h(12)=7=>nodeHead7->key=12
+	h(44)=5=>nodeHead5->key=44
+	h(13)=9=>nodeHead9->key=13
+	h(88)=5=>nodeHead5->next->key=88
+	h(23)=7=>nodeHead7-next->key=23
+	h(94)=6=>nodeHead6->key=94
+	h(11)=5=>nodeHead5->next->next->key=11
+	h(39)=6=>nodeHead6-next->key=39
+	h(20)=1=>nodeHead1->key=20
+	h(16)=4=>nodeHead4->key=16
+	h(5)=4=>nodeHead4->next->key=5
+
+b)	Assume collisions are handled by linear probing. 
+	h(12)=7=>arr[7].key=12
+	h(44)=5=>arr[5].key=44
+	h(13)=9=>arr[9].key=13
+	h(88)=5=>arr[6].key=88
+	h(23)=7=>arr[8].key=23
+	h(94)=6=>arr[10].key=94
+	h(11)=5=>arr[11].key=11
+	h(39)=6=>[12].key=39
+	h(20)=1=>arr[1].key=20
+	h(16)=4=>arr[4].key=16
+	h(5)=4=>arr[13]=5

@@ -1,0 +1,2 @@
+thứ nhất: hash funtion cần phải tính toán nhanh
+thứ hai: hash function cần phải hạn chế tối đa được sự sung đột

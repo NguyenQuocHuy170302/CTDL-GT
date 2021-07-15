@@ -1,0 +1,17 @@
+function insertTail(value)
+	if (!isFull())
+		arr[size]=value
+		size++
+		return true
+	else
+		return false
+Evaluate:O(1)
+
+function getTail
+	if(!isEmpty)
+		data=arr[size-1]
+		size--
+		return data
+	else
+		return NULL
+Evaluate:O(1)

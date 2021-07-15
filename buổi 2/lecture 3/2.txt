@@ -1,0 +1,17 @@
+
+value = 1
+if (n % 2 == 0)
+	for(from i=0 to i=n/2)
+		value*=4
+else
+	for(from i=0 to i=n)
+		value*=2
+return value;
+Evaluate:O(n)
+
+funtion calulate(n)
+if (k == 0)
+	return 2
+else
+	return 2*calculate(n-1)
+Evaluate:O(n)
